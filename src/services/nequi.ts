@@ -21,7 +21,7 @@ paymentDate: Date;
   /**
    * The screenshot URL.
    */
-screenshotUrl: string;
+  screenshotUrl: string;
 }
 
 /**
