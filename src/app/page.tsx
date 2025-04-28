@@ -93,28 +93,28 @@ const Page = () => {
         </div>
       ) : (
         <Tabs defaultValue="personal" className="flex-1 flex flex-col">
-          <TabsList className="m-4">
-            <TabsTrigger value="personal">
+          <TabsPrimitive.List className="m-4">
+            <TabsPrimitive.Trigger value="personal">
               <User className="mr-2 h-4 w-4" />
               IA Personal
-            </TabsTrigger>
-            <TabsTrigger value="family">
+            </TabsPrimitive.Trigger>
+            <TabsPrimitive.Trigger value="family">
               <Users className="mr-2 h-4 w-4" />
               IA Familiar
-            </TabsTrigger>
-            <TabsTrigger value="admin">
+            </TabsPrimitive.Trigger>
+            <TabsPrimitive.Trigger value="admin">
               <CreditCard className="mr-2 h-4 w-4" />
               Panel de Administrador
-            </TabsTrigger>
-            <TabsTrigger value="familyVideos">
+            </TabsPrimitive.Trigger>
+            <TabsPrimitive.Trigger value="familyVideos">
               <Camera className="mr-2 h-4 w-4" />
               Videos Familiares
-            </TabsTrigger>
-            <TabsTrigger value="familyPhotos">
+            </TabsPrimitive.Trigger>
+            <TabsPrimitive.Trigger value="familyPhotos">
               <Image className="mr-2 h-4 w-4" />
               Fotos Familiares
-            </TabsTrigger>
-          </TabsList>
+            </TabsPrimitive.Trigger>
+          </TabsPrimitive.List>
           <div className="flex-1 p-4 relative">
             <TabsContent value="personal" className="outline-none">
               <PersonalIA />
