@@ -12,6 +12,7 @@ const TabsList = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.List
+    aria-orientation="horizontal"
     ref={ref}
     className={cn(
       "inline-flex h-9 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
