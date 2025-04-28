@@ -213,7 +213,7 @@ const PersonalIA = () => {
             }
 
           <ChatHistory messages={chatMessages} />
-          <ChatInput onSendMessage={sendMessageToIA} />
+             <ChatInput onSendMessage={sendMessageToIA} />
           {isLoading && <div>Cargando respuesta de la IA...</div>}
         </CardContent>
       </Card>
