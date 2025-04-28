@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PersonalIA from "@/components/PersonalIA";
 import FamilyIA from "@/components/FamilyIA";
@@ -11,6 +11,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
 const Page = () => {
+  const [showWelcome, setShowWelcome] = useState(true);
+
+  const handleStartClick = () => {
+    setShowWelcome(false);
+  };
+
   return (
     <div className="flex flex-col h-screen">
       {/* Top Navigation Bar */}
@@ -25,41 +31,53 @@ const Page = () => {
         </div>
       </div>
 
-      {/* Tab Navigation */}
-      <Tabs defaultValue="personal" className="flex-1 flex flex-col">
-        <TabsList className="m-4">
-          <TabsTrigger value="personal">
-            <User className="mr-2 h-4 w-4" />
-            IA Personal
-          </TabsTrigger>
-          <TabsTrigger value="family">
-            <Users className="mr-2 h-4 w-4" />
-            IA Familiar
-          </TabsTrigger>
-          <TabsTrigger value="admin">
-            <CreditCard className="mr-2 h-4 w-4" />
-            Panel de Administrador
-          </TabsTrigger>
-          <TabsTrigger value="owner">
-            <CreditCard className="mr-2 h-4 w-4" />
-            Propietario de la App
-          </TabsTrigger>
-        </TabsList>
-        <div className="flex-1 p-4">
-          <TabsContent value="personal" className="outline-none">
-            <PersonalIA />
-          </TabsContent>
-          <TabsContent value="family" className="outline-none">
-            <FamilyIA />
-          </TabsContent>
-          <TabsContent value="admin" className="outline-none">
-            <AdminPanel />
-          </TabsContent>
+      {/* Welcome Screen or Tab Navigation */}
+      {showWelcome ? (
+        <div className="flex flex-col items-center justify-center flex-1">
+          <h1 className="text-4xl font-bold font-montserrat mb-4">
+            Bienvenido a FamilyLink
+          </h1>
+          <p className="text-lg text-muted-foreground mb-8">
+            Conéctate y organiza tu vida familiar de manera eficiente.
+          </p>
+          <Button onClick={handleStartClick}>Comenzar</Button>
+        </div>
+      ) : (
+        <Tabs defaultValue="personal" className="flex-1 flex flex-col">
+          <TabsList className="m-4">
+            <TabsTrigger value="personal">
+              <User className="mr-2 h-4 w-4" />
+              IA Personal
+            </TabsTrigger>
+            <TabsTrigger value="family">
+              <Users className="mr-2 h-4 w-4" />
+              IA Familiar
+            </TabsTrigger>
+            <TabsTrigger value="admin">
+              <CreditCard className="mr-2 h-4 w-4" />
+              Panel de Administrador
+            </TabsTrigger>
+            <TabsTrigger value="owner">
+              <CreditCard className="mr-2 h-4 w-4" />
+              Propietario de la App
+            </TabsTrigger>
+          </TabsList>
+          <div className="flex-1 p-4">
+            <TabsContent value="personal" className="outline-none">
+              <PersonalIA />
+            </TabsContent>
+            <TabsContent value="family" className="outline-none">
+              <FamilyIA />
+            </TabsContent>
+            <TabsContent value="admin" className="outline-none">
+              <AdminPanel />
+            </TabsContent>
             <TabsContent value="owner" className="outline-none">
               <AppOwner />
             </TabsContent>
-        </div>
-      </Tabs>
+          </div>
+        </Tabs>
+      )}
     </div>
   );
 };
