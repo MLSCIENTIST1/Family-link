@@ -11,7 +11,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Login } from "@/components/Login";
 import { Register } from "@/components/Register";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 const Page = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -92,60 +91,40 @@ const Page = () => {
           <Button onClick={handleStartClick}>Comenzar</Button>
         </div>
       ) : (
-        <Tabs defaultValue="personal" className="flex-1 flex flex-col">
-          <TabsPrimitive.Root className="flex-1 flex flex-col">
-            <TabsPrimitive.List className="m-4">
-              <TabsPrimitive.Trigger value="personal">
-                <User className="mr-2 h-4 w-4" />
-                IA Personal
-              </TabsPrimitive.Trigger>
-              <TabsPrimitive.Trigger value="family">
-                <Users className="mr-2 h-4 w-4" />
-                IA Familiar
-              </TabsPrimitive.Trigger>
-              <TabsPrimitive.Trigger value="admin">
-                <CreditCard className="mr-2 h-4 w-4" />
-                Panel de Administrador
-              </TabsPrimitive.Trigger>
-              <TabsPrimitive.Trigger value="familyVideos">
-                <Camera className="mr-2 h-4 w-4" />
-                Videos Familiares
-              </TabsPrimitive.Trigger>
-              <TabsPrimitive.Trigger value="familyPhotos">
-                <Image className="mr-2 h-4 w-4" />
-                Fotos Familiares
-              </TabsPrimitive.Trigger>
-            </TabsPrimitive.List>
-            <div className="flex-1 p-4 relative">
-              <TabsContent value="personal" className="outline-none">
-                <PersonalIA />
-              </TabsContent>
-              <TabsContent value="family" className="outline-none">
-                <FamilyIA />
-              </TabsContent>
-              <TabsContent value="admin" className="outline-none">
-                <AdminPanel />
-              </TabsContent>
-              <TabsContent value="familyVideos" className="outline-none">
-                <div>
-                  <h2>Videos Familiares</h2>
-                  <p>Explora los videos familiares.</p>
-                </div>
-              </TabsContent>
-              <TabsContent value="familyPhotos" className="outline-none">
-                <div>
-                  <h2>Fotos Familiares</h2>
-                  <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
-                </div>
-              </TabsContent>
-              <div className="absolute bottom-4 right-4">
-                <TabsTrigger value="owner">
-                  <CreditCard className="mr-2 h-4 w-4" />
-                  Propietario de la App
-                </TabsTrigger>
-              </div>
-            </div>
-          </TabsPrimitive.Root>
+        <Tabs defaultValue="personalIA" className="flex-1 flex flex-col">
+          <TabsList className="flex justify-center space-x-4 p-4">
+            <TabsTrigger value="personalIA">IA Personal</TabsTrigger>
+            <TabsTrigger value="familyIA">IA Familiar</TabsTrigger>
+            <TabsTrigger value="adminPanel">Panel de Administrador</TabsTrigger>
+            <TabsTrigger value="familyVideos">Videos Familiares</TabsTrigger>
+            <TabsTrigger value="familyPhotos">Fotos Familiares</TabsTrigger>
+          </TabsList>
+          <div className="flex-1 p-4">
+            <TabsContent value="personalIA" className="outline-none">
+              <PersonalIA />
+            </TabsContent>
+            <TabsContent value="familyIA" className="outline-none">
+              <FamilyIA />
+            </TabsContent>
+            <TabsContent value="adminPanel" className="outline-none">
+              <AdminPanel />
+            </TabsContent>
+            <TabsContent value="familyVideos" className="outline-none">
+              <h2>Videos Familiares</h2>
+              <p>Explora los videos familiares.</p>
+            </TabsContent>
+            <TabsContent value="familyPhotos" className="outline-none">
+              <h2>Fotos Familiares</h2>
+              <p>
+                Explora la galería interactiva con álbumes automáticos y
+                presentaciones.
+              </p>
+            </TabsContent>
+          </div>
+          {/* App Owner Button */}
+          <div className="absolute bottom-4 right-4">
+            <AppOwner />
+          </div>
         </Tabs>
       )}
     </div>
