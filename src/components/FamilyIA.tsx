@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ImageIcon, VideoIcon } from "lucide-react";
+import FamilyPhotosPremium from "@/components/FamilyPhotosPremium";
 
 const FamilyIA = () => {
   const [chatMessages, setChatMessages] = useState<string[]>([]);
@@ -79,14 +80,7 @@ const FamilyIA = () => {
             <CardTitle>Galería Interactiva</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>
-              Explora la galería interactiva con álbumes automáticos y
-              presentaciones.
-            </p>
-            <Button>
-              <ImageIcon className="mr-2 h-4 w-4" />
-              Ver Galería de Fotos
-            </Button>
+            <FamilyPhotosPremium/>
           </CardContent>
         </Card>
 
