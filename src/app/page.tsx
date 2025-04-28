@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Login } from "@/components/Login";
 import { Register } from "@/components/Register";
+import FamilyVideosPremium from "@/components/FamilyVideosPremium";
 
 const Page = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -109,8 +110,7 @@ const Page = () => {
               <AdminPanel />
             </TabsContent>
             <TabsContent value="familyVideos" className="outline-none">
-              <h2>Videos Familiares</h2>
-              <p>Explora los videos familiares.</p>
+              <FamilyVideosPremium/>
             </TabsContent>
             <TabsContent value="familyPhotos" className="outline-none">
               <h2>Fotos Familiares</h2>
