@@ -73,7 +73,7 @@ const Page = () => {
             <AvatarImage src="https://picsum.photos/50/50" alt="Avatar" />
             <AvatarFallback>FL</AvatarFallback>
           </Avatar>
-          <Button variant="outline" size="sm" onClick={handleLogout}>
+          <Button variant="destructive" size="sm" onClick={handleLogout}>
             Cerrar Sesión
           </Button>
         </div>
