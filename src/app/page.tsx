@@ -5,7 +5,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PersonalIA from "@/components/PersonalIA";
 import FamilyIA from "@/components/FamilyIA";
 import AdminPanel from "@/components/AdminPanel";
-import AppOwner from "@/components/AppOwner";
 import { Bell, CreditCard, User, Users, Camera, Image } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -122,9 +121,6 @@ const Page = () => {
             </TabsContent>
           </div>
           {/* App Owner Button */}
-          <div className="absolute bottom-4 right-4">
-            <AppOwner />
-          </div>
         </Tabs>
       )}
     </div>

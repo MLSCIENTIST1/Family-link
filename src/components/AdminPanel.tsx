@@ -12,6 +12,7 @@ const AdminPanel = () => {
   const [paymentStatus, setPaymentStatus] = useState(false);
   const [transparency, setTransparency] = useState(50);
   const [theme, setTheme] = useState("light"); // Default theme
+  const [monthlyPrice, setMonthlyPrice] = useState("");
 
   const handleTransparencyChange = (value: number[]) => {
     setTransparency(value[0]);
@@ -20,6 +21,11 @@ const AdminPanel = () => {
   const handleThemeChange = (newTheme: string) => {
     setTheme(newTheme);
     // Apply theme logic here (e.g., update CSS variables)
+  };
+
+  const handleSavePrice = () => {
+    // Logic to save the monthly price (e.g., to a database)
+    alert(`Precio mensual guardado: ${monthlyPrice}`);
   };
 
   return (
@@ -204,6 +210,49 @@ const AdminPanel = () => {
             familiar.
           </p>
           <Button>Ver Estadísticas</Button>
+        </CardContent>
+      </Card>
+
+      {/* Payment Visualization */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Visualización de Pagos</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>Visualiza los pagos realizados por los usuarios.</p>
+          {/* Add payment visualization components here */}
+          <p>No hay pagos recientes para mostrar.</p>
+        </CardContent>
+      </Card>
+
+      {/* Access Approval */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Aprobación de Acceso</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>Aprueba o rechaza el acceso según los pagos.</p>
+          {/* Add access approval components here */}
+          <p>No hay solicitudes pendientes.</p>
+        </CardContent>
+      </Card>
+
+      {/* Custom Price Configuration */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Configuración del Precio Mensual</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>Configura el precio mensual.</p>
+          <Input
+            placeholder="Precio Mensual"
+            type="number"
+            value={monthlyPrice}
+            onChange={(e) => setMonthlyPrice(e.target.value)}
+          />
+          <Button className="mt-2" onClick={handleSavePrice}>
+            Guardar Precio
+          </Button>
         </CardContent>
       </Card>
     </div>
