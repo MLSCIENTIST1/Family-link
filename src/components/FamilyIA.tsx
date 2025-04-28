@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { ImageIcon, VideoIcon } from "lucide-react";
 
 const FamilyIA = () => {
   const [chatMessages, setChatMessages] = useState<string[]>([]);
@@ -82,7 +83,10 @@ const FamilyIA = () => {
               Explora la galería interactiva con álbumes automáticos y
               presentaciones.
             </p>
-            <Button>Ver Galería</Button>
+            <Button>
+              <ImageIcon className="mr-2 h-4 w-4" />
+              Ver Galería de Fotos
+            </Button>
           </CardContent>
         </Card>
 
@@ -93,6 +97,20 @@ const FamilyIA = () => {
           </CardHeader>
           <CardContent>
             <Calendar />
+          </CardContent>
+        </Card>
+
+        {/* Family Videos */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Videos Familiares</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>Explora los videos familiares.</p>
+            <Button>
+              <VideoIcon className="mr-2 h-4 w-4" />
+              Ver Videos Familiares
+            </Button>
           </CardContent>
         </Card>
       </div>
