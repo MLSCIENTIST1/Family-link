@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PersonalIA from "@/components/PersonalIA";
 import FamilyIA from "@/components/FamilyIA";
@@ -9,13 +9,58 @@ import AppOwner from "@/components/AppOwner";
 import { Bell, CreditCard, User, Users } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Login } from "@/components/Login";
+import { Register } from "@/components/Register";
 
 const Page = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+
+  useEffect(() => {
+    // Simulate authentication check (replace with actual Firebase auth)
+    const token = localStorage.getItem("token"); // Example: Check for token in local storage
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []);
 
   const handleStartClick = () => {
     setShowWelcome(false);
   };
+
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleRegisterSuccess = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen">
+        <Tabs defaultValue="login" className="w-full max-w-md">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="login">Iniciar Sesión</TabsTrigger>
+            <TabsTrigger value="register">Registrarse</TabsTrigger>
+          </TabsList>
+          <TabsContent value="login" className="mt-2">
+            <Login onSuccess={handleLoginSuccess} />
+          </TabsContent>
+          <TabsContent value="register" className="mt-2">
+            <Register onSuccess={handleRegisterSuccess} />
+          </TabsContent>
+        </Tabs>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-screen">
@@ -28,6 +73,9 @@ const Page = () => {
             <AvatarImage src="https://picsum.photos/50/50" alt="Avatar" />
             <AvatarFallback>FL</AvatarFallback>
           </Avatar>
+          <Button variant="outline" size="sm" onClick={handleLogout}>
+            Cerrar Sesión
+          </Button>
         </div>
       </div>
 
