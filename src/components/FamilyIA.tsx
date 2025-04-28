@@ -1,12 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const FamilyIA = () => {
+  const [chatMessages, setChatMessages] = useState<string[]>([]);
+  const [newMessage, setNewMessage] = useState("");
+
+  const handleSendMessage = () => {
+    if (newMessage.trim() !== "") {
+      setChatMessages([...chatMessages, newMessage]);
+      setNewMessage("");
+    }
+  };
+
   return (
     <div className="grid grid-cols-1 gap-4">
       {/* Family Chat - Takes full width */}
@@ -14,9 +25,28 @@ const FamilyIA = () => {
         <CardHeader>
           <CardTitle>Chat Familiar</CardTitle>
         </CardHeader>
-        <CardContent>
-          <Textarea placeholder="Escribe tu mensaje aquí..." />
-          <Button className="mt-2">Enviar</Button>
+        <CardContent className="flex flex-col h-[400px]">
+          <ScrollArea className="flex-grow">
+            <div className="space-y-2">
+              {chatMessages.map((message, index) => (
+                <div
+                  key={index}
+                  className="p-2 rounded-md bg-secondary text-secondary-foreground"
+                >
+                  {message}
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+          <div className="mt-2 flex gap-2">
+            <Textarea
+              placeholder="Escribe tu mensaje aquí..."
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+              className="flex-grow"
+            />
+            <Button onClick={handleSendMessage}>Enviar</Button>
+          </div>
           <p className="mt-4">Resumen de discusiones clave:</p>
           <Textarea
             readOnly
@@ -34,7 +64,10 @@ const FamilyIA = () => {
             <CardTitle>Gestión de Proyectos Familiares</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Administra los proyectos familiares y las contribuciones de dinero aquí.</p>
+            <p>
+              Administra los proyectos familiares y las contribuciones de dinero
+              aquí.
+            </p>
             <Button>Crear Proyecto</Button>
           </CardContent>
         </Card>
@@ -45,7 +78,10 @@ const FamilyIA = () => {
             <CardTitle>Galería Interactiva</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
+            <p>
+              Explora la galería interactiva con álbumes automáticos y
+              presentaciones.
+            </p>
             <Button>Ver Galería</Button>
           </CardContent>
         </Card>
@@ -65,5 +101,3 @@ const FamilyIA = () => {
 };
 
 export default FamilyIA;
-
-    
