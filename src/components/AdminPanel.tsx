@@ -75,6 +75,9 @@ const AdminPanel = () => {
             >
               <option value="light">Claro</option>
               <option value="dark">Oscuro</option>
+              <option value="modern">Moderno</option>
+              <option value="pastel">Pastel</option>
+              <option value="retro">Retro</option>
               <option value="custom">Personalizado</option>
             </select>
           </div>
