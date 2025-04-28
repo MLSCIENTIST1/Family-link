@@ -5,9 +5,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
 
 const AdminPanel = () => {
   const [paymentStatus, setPaymentStatus] = useState(false);
+  const [transparency, setTransparency] = useState(50);
+  const [theme, setTheme] = useState("light"); // Default theme
+
+  const handleTransparencyChange = (value: number[]) => {
+    setTransparency(value[0]);
+  };
+
+  const handleThemeChange = (newTheme: string) => {
+    setTheme(newTheme);
+    // Apply theme logic here (e.g., update CSS variables)
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -46,13 +59,147 @@ const AdminPanel = () => {
         </CardContent>
       </Card>
 
+      {/* App Customization Options */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Personalización de la App</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-4">
+          {/* Theme Selection */}
+          <div>
+            <p>Tema:</p>
+            <select
+              className="w-full"
+              value={theme}
+              onChange={(e) => handleThemeChange(e.target.value)}
+            >
+              <option value="light">Claro</option>
+              <option value="dark">Oscuro</option>
+              <option value="custom">Personalizado</option>
+            </select>
+          </div>
+
+          {/* Transparency Control */}
+          <div>
+            <p>Transparencia ({transparency}%):</p>
+            <Slider
+              defaultValue={[transparency]}
+              max={100}
+              step={1}
+              onValueChange={handleTransparencyChange}
+            />
+          </div>
+
+          {/* Option 3: Enable Dark Mode */}
+          <div>
+            <label
+              htmlFor="darkMode"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Modo Oscuro:
+            </label>
+            <Switch id="darkMode" />
+          </div>
+
+          {/* Option 4: Enable Notifications */}
+          <div>
+            <label
+              htmlFor="notifications"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Notificaciones:
+            </label>
+            <Switch id="notifications" />
+          </div>
+
+          {/* Option 5: Enable Sounds */}
+          <div>
+            <label
+              htmlFor="sounds"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Sonidos:
+            </label>
+            <Switch id="sounds" />
+          </div>
+
+          {/* Option 6: Enable Animations */}
+          <div>
+            <label
+              htmlFor="animations"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Animaciones:
+            </label>
+            <Switch id="animations" />
+          </div>
+
+          {/* Option 7: Enable Blur Effect */}
+          <div>
+            <label
+              htmlFor="blurEffect"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Efecto de Desenfoque:
+            </label>
+            <Switch id="blurEffect" />
+          </div>
+
+          {/* Option 8: Enable Rounded Corners */}
+          <div>
+            <label
+              htmlFor="roundedCorners"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Esquinas Redondeadas:
+            </label>
+            <Switch id="roundedCorners" />
+          </div>
+
+          {/* Option 9: Enable Shadow Effect */}
+          <div>
+            <label
+              htmlFor="shadowEffect"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Efecto de Sombra:
+            </label>
+            <Switch id="shadowEffect" />
+          </div>
+
+          {/* Option 10: Enable Gradient Background */}
+          <div>
+            <label
+              htmlFor="gradientBackground"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Fondo de Degradado:
+            </label>
+            <Switch id="gradientBackground" />
+          </div>
+
+          {/* Option 11: Text Size */}
+          <div>
+            <p>Tamaño de texto:</p>
+            <select className="w-full">
+              <option>Pequeño</option>
+              <option>Mediano</option>
+              <option>Grande</option>
+            </select>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Statistics and History */}
       <Card>
         <CardHeader>
           <CardTitle>Estadísticas e Historial</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Accede a estadísticas avanzadas e historial de pagos y actividad familiar.</p>
+          <p>
+            Accede a estadísticas avanzadas e historial de pagos y actividad
+            familiar.
+          </p>
           <Button>Ver Estadísticas</Button>
         </CardContent>
       </Card>
