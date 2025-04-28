@@ -93,57 +93,59 @@ const Page = () => {
         </div>
       ) : (
         <Tabs defaultValue="personal" className="flex-1 flex flex-col">
-          <TabsPrimitive.List className="m-4">
-            <TabsPrimitive.Trigger value="personal">
-              <User className="mr-2 h-4 w-4" />
-              IA Personal
-            </TabsPrimitive.Trigger>
-            <TabsPrimitive.Trigger value="family">
-              <Users className="mr-2 h-4 w-4" />
-              IA Familiar
-            </TabsPrimitive.Trigger>
-            <TabsPrimitive.Trigger value="admin">
-              <CreditCard className="mr-2 h-4 w-4" />
-              Panel de Administrador
-            </TabsPrimitive.Trigger>
-            <TabsPrimitive.Trigger value="familyVideos">
-              <Camera className="mr-2 h-4 w-4" />
-              Videos Familiares
-            </TabsPrimitive.Trigger>
-            <TabsPrimitive.Trigger value="familyPhotos">
-              <Image className="mr-2 h-4 w-4" />
-              Fotos Familiares
-            </TabsPrimitive.Trigger>
-          </TabsPrimitive.List>
-          <div className="flex-1 p-4 relative">
-            <TabsContent value="personal" className="outline-none">
-              <PersonalIA />
-            </TabsContent>
-            <TabsContent value="family" className="outline-none">
-              <FamilyIA />
-            </TabsContent>
-            <TabsContent value="admin" className="outline-none">
-              <AdminPanel />
-            </TabsContent>
-            <TabsContent value="familyVideos" className="outline-none">
-              <div>
-                <h2>Videos Familiares</h2>
-                <p>Explora los videos familiares.</p>
-              </div>
-            </TabsContent>
-            <TabsContent value="familyPhotos" className="outline-none">
-              <div>
-                <h2>Fotos Familiares</h2>
-                <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
-              </div>
-            </TabsContent>
-            <div className="absolute bottom-4 right-4">
-              <TabsTrigger value="owner">
+          <TabsPrimitive.Root className="flex-1 flex flex-col">
+            <TabsPrimitive.List className="m-4">
+              <TabsPrimitive.Trigger value="personal">
+                <User className="mr-2 h-4 w-4" />
+                IA Personal
+              </TabsPrimitive.Trigger>
+              <TabsPrimitive.Trigger value="family">
+                <Users className="mr-2 h-4 w-4" />
+                IA Familiar
+              </TabsPrimitive.Trigger>
+              <TabsPrimitive.Trigger value="admin">
                 <CreditCard className="mr-2 h-4 w-4" />
-                Propietario de la App
-              </TabsTrigger>
+                Panel de Administrador
+              </TabsPrimitive.Trigger>
+              <TabsPrimitive.Trigger value="familyVideos">
+                <Camera className="mr-2 h-4 w-4" />
+                Videos Familiares
+              </TabsPrimitive.Trigger>
+              <TabsPrimitive.Trigger value="familyPhotos">
+                <Image className="mr-2 h-4 w-4" />
+                Fotos Familiares
+              </TabsPrimitive.Trigger>
+            </TabsPrimitive.List>
+            <div className="flex-1 p-4 relative">
+              <TabsContent value="personal" className="outline-none">
+                <PersonalIA />
+              </TabsContent>
+              <TabsContent value="family" className="outline-none">
+                <FamilyIA />
+              </TabsContent>
+              <TabsContent value="admin" className="outline-none">
+                <AdminPanel />
+              </TabsContent>
+              <TabsContent value="familyVideos" className="outline-none">
+                <div>
+                  <h2>Videos Familiares</h2>
+                  <p>Explora los videos familiares.</p>
+                </div>
+              </TabsContent>
+              <TabsContent value="familyPhotos" className="outline-none">
+                <div>
+                  <h2>Fotos Familiares</h2>
+                  <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
+                </div>
+              </TabsContent>
+              <div className="absolute bottom-4 right-4">
+                <TabsTrigger value="owner">
+                  <CreditCard className="mr-2 h-4 w-4" />
+                  Propietario de la App
+                </TabsTrigger>
+              </div>
             </div>
-          </div>
+          </TabsPrimitive.Root>
         </Tabs>
       )}
     </div>
