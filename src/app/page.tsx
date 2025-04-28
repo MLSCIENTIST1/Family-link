@@ -105,10 +105,6 @@ const Page = () => {
               <CreditCard className="mr-2 h-4 w-4" />
               Panel de Administrador
             </TabsTrigger>
-            <TabsTrigger value="owner">
-              <CreditCard className="mr-2 h-4 w-4" />
-              Propietario de la App
-            </TabsTrigger>
             <TabsTrigger value="familyVideos">
               <Camera className="mr-2 h-4 w-4" />
               Videos Familiares
@@ -118,7 +114,7 @@ const Page = () => {
               Fotos Familiares
             </TabsTrigger>
           </TabsList>
-          <div className="flex-1 p-4">
+          <div className="flex-1 p-4 relative">
             <TabsContent value="personal" className="outline-none">
               <PersonalIA />
             </TabsContent>
@@ -127,9 +123,6 @@ const Page = () => {
             </TabsContent>
             <TabsContent value="admin" className="outline-none">
               <AdminPanel />
-            </TabsContent>
-            <TabsContent value="owner" className="outline-none">
-              <AppOwner />
             </TabsContent>
             <TabsContent value="familyVideos" className="outline-none">
               <div>
@@ -143,6 +136,12 @@ const Page = () => {
                 <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
               </div>
             </TabsContent>
+            <div className="absolute bottom-4 right-4">
+              <TabsTrigger value="owner">
+                <CreditCard className="mr-2 h-4 w-4" />
+                Propietario de la App
+              </TabsTrigger>
+            </div>
           </div>
         </Tabs>
       )}
