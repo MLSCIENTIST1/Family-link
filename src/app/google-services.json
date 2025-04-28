@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1081242263140",
+    "project_id": "familylink-f16c2",
+    "storage_bucket": "familylink-f16c2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081242263140:android:136b14222ceaddbd8c4971",
+        "android_client_info": {
+          "package_name": "FamilyLink.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXIeKhPWEleFJ8dVy3hN8SH1EM7yIs70M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
