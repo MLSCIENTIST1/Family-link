@@ -8,9 +8,9 @@ import { Calendar } from "@/components/ui/calendar";
 
 const FamilyIA = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {/* Family Chat */}
-      <Card>
+    <div className="grid grid-cols-1 gap-4">
+      {/* Family Chat - Takes full width */}
+      <Card className="col-span-1">
         <CardHeader>
           <CardTitle>Chat Familiar</CardTitle>
         </CardHeader>
@@ -26,39 +26,44 @@ const FamilyIA = () => {
         </CardContent>
       </Card>
 
-      {/* Project Management */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Gestión de Proyectos Familiares</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>Administra los proyectos familiares y las contribuciones de dinero aquí.</p>
-          <Button>Crear Proyecto</Button>
-        </CardContent>
-      </Card>
+      {/* Remaining features will be in a grid layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Project Management */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Gestión de Proyectos Familiares</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>Administra los proyectos familiares y las contribuciones de dinero aquí.</p>
+            <Button>Crear Proyecto</Button>
+          </CardContent>
+        </Card>
 
-      {/* Interactive Gallery */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Galería Interactiva</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
-          <Button>Ver Galería</Button>
-        </CardContent>
-      </Card>
+        {/* Interactive Gallery */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Galería Interactiva</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
+            <Button>Ver Galería</Button>
+          </CardContent>
+        </Card>
 
-      {/* Family Calendar */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Calendario Familiar</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Calendar />
-        </CardContent>
-      </Card>
+        {/* Family Calendar */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Calendario Familiar</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Calendar />
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
 
 export default FamilyIA;
+
+    
