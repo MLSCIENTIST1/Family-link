@@ -11,6 +11,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Login } from "@/components/Login";
 import { Register } from "@/components/Register";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 const Page = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -91,7 +92,7 @@ const Page = () => {
           <Button onClick={handleStartClick}>Comenzar</Button>
         </div>
       ) : (
-        <Tabs defaultValue="personal" className="flex-1 flex flex-col">
+        <TabsPrimitive.Root className="flex-1 flex flex-col">
           <TabsList className="m-4">
             <TabsTrigger value="personal">
               <User className="mr-2 h-4 w-4" />
@@ -143,7 +144,7 @@ const Page = () => {
               </TabsTrigger>
             </div>
           </div>
-        </Tabs>
+        </TabsPrimitive.Root>
       )}
     </div>
   );
