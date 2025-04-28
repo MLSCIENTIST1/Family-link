@@ -6,7 +6,7 @@ import PersonalIA from "@/components/PersonalIA";
 import FamilyIA from "@/components/FamilyIA";
 import AdminPanel from "@/components/AdminPanel";
 import AppOwner from "@/components/AppOwner";
-import { Bell, CreditCard, User, Users } from "lucide-react";
+import { Bell, CreditCard, User, Users, Camera, Image } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Login } from "@/components/Login";
@@ -109,6 +109,14 @@ const Page = () => {
               <CreditCard className="mr-2 h-4 w-4" />
               Propietario de la App
             </TabsTrigger>
+            <TabsTrigger value="familyVideos">
+              <Camera className="mr-2 h-4 w-4" />
+              Videos Familiares
+            </TabsTrigger>
+            <TabsTrigger value="familyPhotos">
+              <Image className="mr-2 h-4 w-4" />
+              Fotos Familiares
+            </TabsTrigger>
           </TabsList>
           <div className="flex-1 p-4">
             <TabsContent value="personal" className="outline-none">
@@ -122,6 +130,18 @@ const Page = () => {
             </TabsContent>
             <TabsContent value="owner" className="outline-none">
               <AppOwner />
+            </TabsContent>
+            <TabsContent value="familyVideos" className="outline-none">
+              <div>
+                <h2>Videos Familiares</h2>
+                <p>Explora los videos familiares.</p>
+              </div>
+            </TabsContent>
+            <TabsContent value="familyPhotos" className="outline-none">
+              <div>
+                <h2>Fotos Familiares</h2>
+                <p>Explora la galería interactiva con álbumes automáticos y presentaciones.</p>
+              </div>
             </TabsContent>
           </div>
         </Tabs>
