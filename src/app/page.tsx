@@ -92,7 +92,7 @@ const Page = () => {
           <Button onClick={handleStartClick}>Comenzar</Button>
         </div>
       ) : (
-        <TabsPrimitive.Root className="flex-1 flex flex-col">
+        <Tabs defaultValue="personal" className="flex-1 flex flex-col">
           <TabsList className="m-4">
             <TabsTrigger value="personal">
               <User className="mr-2 h-4 w-4" />
@@ -144,7 +144,7 @@ const Page = () => {
               </TabsTrigger>
             </div>
           </div>
-        </TabsPrimitive.Root>
+        </Tabs>
       )}
     </div>
   );
